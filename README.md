@@ -3,8 +3,8 @@
 Following the "Connected to Backbone" tutorial from Tuts+
 
 - 1 - The Essentials
- - [ ] 00-Introduction.mp4
- - [ ] 01-Installation.mp4
+ - [X] 00-Introduction.mp4
+ - [-] 01-Installation.mp4
  - [ ] 02-Data-Types-Primer.mp4
  - [ ] 03-Your-First-Backbone-Model.mp4
  - [ ] 04-Validating-Models.mp4
