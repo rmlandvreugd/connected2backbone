@@ -1,9 +1,8 @@
-var Person = function(config) {
-    this.name = config.name;
-    this.age = config.age;
-    this.occupation = config.occupation;
-};
+var Person = Backbone.Model.extend({
+    defaults:{
+        name: 'John Doe',
+        age: 38,
+        occupation: 'worker'
+    }
 
-Person.prototype.work = function() {
-    return this.name + ' is working.';
-};
+});
