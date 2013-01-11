@@ -6,8 +6,8 @@ Following the "Connected to Backbone" tutorial from Tuts+
  - [X] 00-Introduction.mp4
  - [X] 01-Installation.mp4
  - [X] 02-Data-Types-Primer.mp4
- - [ ] 03-Your-First-Backbone-Model.mp4
- - [ ] 04-Validating-Models.mp4
+ - [X] 03-Your-First-Backbone-Model.mp4
+ - [-] 04-Validating-Models.mp4
  - [ ] 05-Views.mp4
  - [ ] 06-Inline-Templates.mp4
  - [ ] 07-External-Templates.mp4
