@@ -5,3 +5,9 @@ var Person = Backbone.Model.extend({
 		occupation: 'worker'
 	}
 });
+
+var PersonView = Backbone.View.extend({
+  tagName: 'li',
+  className: 'person',
+  id: 'some-person'
+});
