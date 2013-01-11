@@ -16,7 +16,8 @@ var PersonView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html( this.model.get('name') );
+    //anti-pattern
+    this.$el.html( this.model.get('name') + ' (' + this.model.get('age') + ') - ' + this.model.get('occupation') );
     return this;
   }
 });
