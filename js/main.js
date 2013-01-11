@@ -12,14 +12,12 @@ var PersonView = Backbone.View.extend({
   template: _.template("<strong><%= name %></strong> (<%= age %>) - <%= occupation %>"),
 
   initialize: function() {
-    console.log("'initialize()': with model ");
-    console.log(this.model.toJSON());
+    console.log("initialize()");
     this.render();
   },
 
   render: function() {
-    //anti-pattern
-    //this.$el.html( this.model.get('name') + ' (' + this.model.get('age') + ') - ' + this.model.get('occupation') );
+    console.log("render()");
     this.$el.html( this.template(this.model.toJSON()) );
     return this;
   }
