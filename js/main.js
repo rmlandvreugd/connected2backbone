@@ -9,6 +9,10 @@ var Person = Backbone.Model.extend({
 		if ( attrs.age < 0 ) {
 			return 'Age must be positive!';
 		}
+
+		if ( ! attrs.name) {
+			return 'Every person must have a name!';
+		}
 	},
 
 	work: function() {
