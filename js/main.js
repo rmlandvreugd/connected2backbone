@@ -6,7 +6,9 @@ var Person = Backbone.Model.extend({
 	},
 
 	validate: function(attrs){
-		console.log(attrs);
+		if ( attrs.age < 0 ) {
+			return 'Age must be positive!';
+		}
 	},
 
 	work: function() {
