@@ -9,8 +9,8 @@ Following the "Connected to Backbone" tutorial from Tuts+
  - [X] 03-Your-First-Backbone-Model.mp4
  - [X] 04-Validating-Models.mp4
  - [X] 05-Views.mp4
- - [-] 06-Inline-Templates.mp4
- - [ ] 07-External-Templates.mp4
+ - [X] 06-Inline-Templates.mp4
+ - [X] 07-External-Templates.mp4
  - [ ] 08-Collections.mp4
  - [ ] 09-Collection-Views.mp4
  - [ ] 10-Template-Helper.mp4
