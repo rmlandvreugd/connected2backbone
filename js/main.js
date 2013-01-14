@@ -9,7 +9,7 @@ var Person = Backbone.Model.extend({
 var PersonView = Backbone.View.extend({
   tagName: 'li',
 
-  template: _.template("<strong><%= name %></strong> (<%= age %>) - <%= occupation %>"),
+  template: _.template( $('#personTemplate').html() ),
 
   initialize: function() {
     console.log("initialize()");
