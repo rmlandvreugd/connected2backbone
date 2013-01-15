@@ -12,6 +12,31 @@ var PeopleCollection = Backbone.Collection.extend({
   model: Person
 });
 
+// View for all people
+var PeopleView =  Backbone.View.extend({
+  tagName: 'ul',
+
+  initialize: function() {
+    console.log("PeopleView: initialize()");
+    console.log(this.collection);
+  },
+
+  render: function() {
+    console.log("PeopleView: render()");
+    // Filter through all items in a colection
+    this.collection.each(function(person){
+      console.log(person);
+      // for each, create a new PersonView
+      var personView = new PersonView({ model: person });
+      console.log(personView.el);
+      // append the root element to the PeopleCollection root element
+      this.$el.append(personView.el);
+    }, this);
+
+    return this;
+  }
+});
+
 // The View for a Person
 var PersonView = Backbone.View.extend({
   tagName: 'li',
@@ -19,12 +44,12 @@ var PersonView = Backbone.View.extend({
   template: _.template( $('#personTemplate').html() ),
 
   initialize: function() {
-    console.log("initialize()");
+    console.log("PersonView: initialize()");
     this.render();
   },
 
   render: function() {
-    console.log("render()");
+    console.log("PersonView: render()");
     this.$el.html( this.template(this.model.toJSON()) );
     return this;
   }
@@ -52,3 +77,6 @@ var peopleCollection = new PeopleCollection([
 ]);
 
 console.log(peopleCollection);
+
+var peopleView = new PeopleView({ collection: peopleCollection });
+$(document.body).append(peopleView.render().el);
