@@ -22,7 +22,7 @@ App.Views.Tasks = Backbone.View.extend({
   render: function() {
     console.log("App.Views.Tasks: render()");
     this.collection.each(this.addOne, this);
-//    return this;
+    return this;
   },
 
   addOne: function(task) {
@@ -37,6 +37,15 @@ App.Views.Tasks = Backbone.View.extend({
 
 App.Views.Task = Backbone.View.extend({
   tagName: 'li',
+
+  events: {
+    'click': 'showAlert'
+  },
+
+  showAlert: function(){
+    console.log("App.Views.Task: showAlert()");
+    alert('You clicked me!');
+  },
 
   render: function() {
     console.log("App.Views.Task: render()");
@@ -61,8 +70,8 @@ App.Views.Task = Backbone.View.extend({
   ]);
 
   var tasksView = new App.Views.Tasks({ collection: tasksCollection });
-  tasksView.render();
+  //tasksView.render();
   console.log(tasksView.el);
-$(document.body).html(tasksView.el);
+  $('.tasks').html(tasksView.render().el);
 
 })();
