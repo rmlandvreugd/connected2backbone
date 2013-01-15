@@ -1,10 +1,18 @@
-var template = function(id) {
+(function(){
+
+window.App = {
+  Models: {},
+  Collections: {},
+  Views: {}
+};
+
+window.template = function(id) {
   console.log( "template with id: " + id );
   return _.template( $('#' + id).html() );
 };
 
 // Person Model
-var Person = Backbone.Model.extend({
+App.Models.Person = Backbone.Model.extend({
   defaults: {
     name: 'John Doe',
     age: 38,
@@ -13,27 +21,27 @@ var Person = Backbone.Model.extend({
 });
 
 // A List of People
-var PeopleCollection = Backbone.Collection.extend({
-  model: Person
+App.Collections.People = Backbone.Collection.extend({
+  model: App.Models.Person
 });
 
 // View for all people
-var PeopleView =  Backbone.View.extend({
+App.Views.People =  Backbone.View.extend({
   tagName: 'ul',
 
   initialize: function() {
-    console.log("PeopleView: initialize()");
-    console.log(this.collection);
+    console.log("App.Views.People: initialize()");
+    //console.log(this.collection);
   },
 
   render: function() {
-    console.log("PeopleView: render()");
+    console.log("App.Views.People: render()");
     // Filter through all items in a colection
     this.collection.each(function(person){
-      console.log(person);
+      console.log("Working with \'" + person.get('name') + "\'.");
       // for each, create a new PersonView
-      var personView = new PersonView({ model: person });
-      console.log(personView.el);
+      var personView = new App.Views.Person({ model: person });
+      //console.log(personView.el);
       // append the root element to the PeopleCollection root element
       this.$el.append(personView.el);
     }, this);
@@ -43,28 +51,24 @@ var PeopleView =  Backbone.View.extend({
 });
 
 // The View for a Person
-var PersonView = Backbone.View.extend({
+App.Views.Person = Backbone.View.extend({
   tagName: 'li',
 
   template: template('personTemplate'),
 
   initialize: function() {
-    console.log("PersonView: initialize()");
+    console.log("App.Views.Person: initialize()");
     this.render();
   },
 
   render: function() {
-    console.log("PersonView: render()");
+    console.log("App.Views.Person: render()");
     this.$el.html( this.template(this.model.toJSON()) );
     return this;
   }
 });
 
-var person = new Person();
-
-//var personView = new PersonView({ model: person });
-
-var peopleCollection = new PeopleCollection([
+var peopleCollection = new App.Collections.People([
   {
     name: 'Jeffrey Way',
     age: 27
@@ -83,5 +87,8 @@ var peopleCollection = new PeopleCollection([
 
 //console.log(peopleCollection);
 
-var peopleView = new PeopleView({ collection: peopleCollection });
+var peopleView = new App.Views.People({ collection: peopleCollection });
 $(document.body).append(peopleView.render().el);
+
+console.log(App.Collections);
+})();
