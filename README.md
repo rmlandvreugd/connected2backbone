@@ -13,8 +13,8 @@ Following the "Connected to Backbone" tutorial from Tuts+
  - [X] 07-External-Templates.mp4
  - [X] 08-Collections.mp4
  - [X] 09-Collection-Views.mp4
- - [- ] 10-Template-Helper.mp4
- - [ ] 11-Namespacing.mp4
+ - [X] 10-Template-Helper.mp4
+ - [-] 11-Namespacing.mp4
 - 2 - Hands-On Tasks
  - [ ] 12-Hands-On-Tasks-Dom-Events.mp4
  - [ ] 13-Hands-On-Tasks-Custom-Events.mp4

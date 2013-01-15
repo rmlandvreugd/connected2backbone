@@ -1,3 +1,8 @@
+var template = function(id) {
+  console.log( "template with id: " + id );
+  return $('#' + id).html();
+};
+
 // Person Model
 var Person = Backbone.Model.extend({
   defaults: {
@@ -41,7 +46,7 @@ var PeopleView =  Backbone.View.extend({
 var PersonView = Backbone.View.extend({
   tagName: 'li',
 
-  template: _.template( $('#personTemplate').html() ),
+  template: _.template( template('personTemplate') ),
 
   initialize: function() {
     console.log("PersonView: initialize()");
