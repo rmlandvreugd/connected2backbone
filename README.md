@@ -11,8 +11,8 @@ Following the "Connected to Backbone" tutorial from Tuts+
  - [X] 05-Views.mp4
  - [X] 06-Inline-Templates.mp4
  - [X] 07-External-Templates.mp4
- - [-] 08-Collections.mp4
- - [ ] 09-Collection-Views.mp4
+ - [X] 08-Collections.mp4
+ - [-] 09-Collection-Views.mp4
  - [ ] 10-Template-Helper.mp4
  - [ ] 11-Namespacing.mp4
 - 2 - Hands-On Tasks
