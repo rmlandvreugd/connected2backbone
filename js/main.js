@@ -1,6 +1,6 @@
 var template = function(id) {
   console.log( "template with id: " + id );
-  return $('#' + id).html();
+  return _.template( $('#' + id).html() );
 };
 
 // Person Model
@@ -46,7 +46,7 @@ var PeopleView =  Backbone.View.extend({
 var PersonView = Backbone.View.extend({
   tagName: 'li',
 
-  template: _.template( template('personTemplate') ),
+  template: template('personTemplate'),
 
   initialize: function() {
     console.log("PersonView: initialize()");
@@ -81,7 +81,7 @@ var peopleCollection = new PeopleCollection([
   }
 ]);
 
-console.log(peopleCollection);
+//console.log(peopleCollection);
 
 var peopleView = new PeopleView({ collection: peopleCollection });
 $(document.body).append(peopleView.render().el);
