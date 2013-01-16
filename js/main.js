@@ -38,18 +38,24 @@ App.Views.Tasks = Backbone.View.extend({
 App.Views.Task = Backbone.View.extend({
   tagName: 'li',
 
+  template: template('taskTemplate'),
+
   events: {
-    'click': 'showAlert'
+    'click .edit': 'editTask'
   },
 
-  showAlert: function(){
-    console.log("App.Views.Task: showAlert()");
-    alert('You clicked me!');
+  editTask: function(){
+    console.log("App.Views.Task: editTask()");
+    var newTaskTitle = prompt('What would you like to change the text to?', this.model.get('title'));
+
+    this.model.set('title', newTaskTitle);
   },
 
   render: function() {
     console.log("App.Views.Task: render()");
-    this.$el.html( this.model.get('title') );
+    console.log(this.template(this.model.toJSON()));
+    var template = this.template( this.model.toJSON() );
+    this.$el.html( template );
     return this;
   }
 });
@@ -71,7 +77,7 @@ App.Views.Task = Backbone.View.extend({
 
   var tasksView = new App.Views.Tasks({ collection: tasksCollection });
   //tasksView.render();
-  console.log(tasksView.el);
+  console.log(tasksView.$el);
   $('.tasks').html(tasksView.render().el);
 
 })();
