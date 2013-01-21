@@ -11,7 +11,13 @@ window.template = function(id) {
   return _.template( $('#' + id).html() );
 };
 
-App.Models.Task = Backbone.Model.extend({});
+App.Models.Task = Backbone.Model.extend({
+  validate: function(attrs) {
+    if ( ! $.trim(attrs.title) ){
+      return 'A task requires a valid title!';
+    }
+  }
+});
 
 App.Collections.Tasks = Backbone.Collection.extend({
   model: App.Models.Task
@@ -44,9 +50,16 @@ App.Views.Task = Backbone.View.extend({
     'click .edit': 'editTask'
   },
 
+  initialize: function(){
+    console.log("App.Views.Task: initialize()");
+    this.model.on('change', this.render, this);
+  },
+
   editTask: function(){
     console.log("App.Views.Task: editTask()");
     var newTaskTitle = prompt('What would you like to change the text to?', this.model.get('title'));
+
+    if ( !newTaskTitle ) return;
 
     this.model.set('title', newTaskTitle);
   },
