@@ -21,9 +21,9 @@ Following the "Connected to Backbone" tutorial from Tuts+
  - [X] 14-Hands-On-Tasks-Destroying-Models.mp4
  - [X] 15-Hands-On-Tasks-Creating-New-Tasks.mp4
 - 3 - Routing
- - [ ] 16-Routes-101.mp4
- - [ ] 17-Wildcards-and-Splats.mp4
- - [ ] 18-Triggering-Custom-Events.mp4
+ - [X] 16-Routes-101.mp4
+ - [X] 17-Wildcards-and-Splats.mp4
+ - [X] 18-Triggering-Custom-Events.mp4
 - 4 - Backbone And The Server
  - [ ] 19-Laravel-4-And-Fetching-Rows.mp4
  - [ ] 20-Updating-Rows.mp4
