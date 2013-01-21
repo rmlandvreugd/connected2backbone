@@ -1,4 +1,18 @@
 
+n.n.n / 2013-01-21 
+==================
+
+  * Merge branch 'develop'
+  * Merge branch 'feature/Routing' into develop
+  * * js/main.js: a route now triggers a view using an event mixin. * README.md: Finished 'Triggering Custom Events'.
+  * * js/main.js: Added route for show with an id. * README.md: Finished "Wildcards and Splats".
+  * * js/main.js: Routes added for 'index' and 'show'. * README.md: Finished 'Routes 101'.
+  * Starting with 'Routing'.
+  * Merge branch 'feature/Tasks' into develop
+  * Added 'History.md'.
+  * Bumped version number to essentials
+  * Merge branch 'develop'
+
 n.n.n / 2013-01-15 
 ==================
 
