@@ -46,13 +46,15 @@ App.Views.Task = Backbone.View.extend({
 
   template: template('taskTemplate'),
 
-  events: {
-    'click .edit': 'editTask'
-  },
-
   initialize: function(){
     console.log("App.Views.Task: initialize()");
     this.model.on('change', this.render, this);
+    this.model.on('destroy', this.remove, this);
+  },
+
+  events: {
+    'click .edit': 'editTask',
+    'click .delete': 'destroy'
   },
 
   editTask: function(){
@@ -62,6 +64,17 @@ App.Views.Task = Backbone.View.extend({
     if ( !newTaskTitle ) return;
 
     this.model.set('title', newTaskTitle);
+  },
+
+  destroy: function(){
+    console.log("App.Views.Task: destroy()");
+    this.model.destroy();
+    console.log(tasksCollection.toJSON());
+  },
+
+  remove: function(){
+    console.log("App.Views.Task: remove()");
+    this.$el.remove();
   },
 
   render: function() {
