@@ -3,7 +3,8 @@
 window.App = {
   Models: {},
   Collections: {},
-  Views: {}
+  Views: {},
+  Router: {}
 };
 
 window.template = function(id) {
@@ -11,84 +12,38 @@ window.template = function(id) {
   return _.template( $('#' + id).html() );
 };
 
-// Person Model
-App.Models.Person = Backbone.Model.extend({
-  defaults: {
-    name: 'John Doe',
-    age: 38,
-    occupation: 'worker'
-  }
-});
+var vent = _.extend({}, Backbone.Events);
 
-// A List of People
-App.Collections.People = Backbone.Collection.extend({
-  model: App.Models.Person
-});
-
-// View for all people
-App.Views.People =  Backbone.View.extend({
-  tagName: 'ul',
-
+App.Views.Appointment = Backbone.View.extend({
   initialize: function() {
-    console.log("App.Views.People: initialize()");
-    //console.log(this.collection);
+    console.log("App.Views.Appointment: initialize()");
+    vent.on('appointment:show', this.show, this);
   },
 
-  render: function() {
-    console.log("App.Views.People: render()");
-    // Filter through all items in a colection
-    this.collection.each(function(person){
-      console.log("Working with \'" + person.get('name') + "\'.");
-      // for each, create a new PersonView
-      var personView = new App.Views.Person({ model: person });
-      //console.log(personView.el);
-      // append the root element to the PeopleCollection root element
-      this.$el.append(personView.el);
-    }, this);
-
-    return this;
+  show: function(id) {
+    console.log("App.Views.Appointment: showAppointment() with id: " + id);
   }
 });
 
-// The View for a Person
-App.Views.Person = Backbone.View.extend({
-  tagName: 'li',
+App.Router = Backbone.Router.extend({
 
-  template: template('personTemplate'),
-
-  initialize: function() {
-    console.log("App.Views.Person: initialize()");
-    this.render();
+  routes: {
+    '': 'index',
+    'appointment/:id': 'showAppointment'
   },
 
-  render: function() {
-    console.log("App.Views.Person: render()");
-    this.$el.html( this.template(this.model.toJSON()) );
-    return this;
+  index: function() {
+    console.log("App.Router: index()");
+  },
+
+  showAppointment: function(appointmentId) {
+    console.log("App.Router: showAppointment() with id = " + appointmentId);
+    vent.trigger('appointment:show', appointmentId);
   }
 });
 
-var peopleCollection = new App.Collections.People([
-  {
-    name: 'Jeffrey Way',
-    age: 27
-  },
-  {
-    name: 'John Doe',
-    age: 50,
-    occupation: 'Web designer'
-  },
-  {
-    name: 'Sally Doe',
-    age: 29,
-    occupation: 'Graphic designer'
-  }
-]);
+new App.Views.Appointment;
+new App.Router;
+Backbone.history.start();
 
-//console.log(peopleCollection);
-
-var peopleView = new App.Views.People({ collection: peopleCollection });
-$(document.body).append(peopleView.render().el);
-
-console.log(App.Collections);
 })();
