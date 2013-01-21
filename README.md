@@ -16,10 +16,10 @@ Following the "Connected to Backbone" tutorial from Tuts+
  - [X] 10-Template-Helper.mp4
  - [X] 11-Namespacing.mp4
 - 2 - Hands-On Tasks
- - [ ] 12-Hands-On-Tasks-Dom-Events.mp4
- - [ ] 13-Hands-On-Tasks-Custom-Events.mp4
- - [ ] 14-Hands-On-Tasks-Destroying-Models.mp4
- - [ ] 15-Hands-On-Tasks-Creating-New-Tasks.mp4
+ - [X] 12-Hands-On-Tasks-Dom-Events.mp4
+ - [X] 13-Hands-On-Tasks-Custom-Events.mp4
+ - [X] 14-Hands-On-Tasks-Destroying-Models.mp4
+ - [X] 15-Hands-On-Tasks-Creating-New-Tasks.mp4
 - 3 - Routing
  - [ ] 16-Routes-101.mp4
  - [ ] 17-Wildcards-and-Splats.mp4

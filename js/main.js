@@ -11,84 +11,127 @@ window.template = function(id) {
   return _.template( $('#' + id).html() );
 };
 
-// Person Model
-App.Models.Person = Backbone.Model.extend({
-  defaults: {
-    name: 'John Doe',
-    age: 38,
-    occupation: 'worker'
+App.Models.Task = Backbone.Model.extend({
+  validate: function(attrs) {
+    if ( ! $.trim(attrs.title) ){
+      return 'A task requires a valid title!';
+    }
   }
 });
 
-// A List of People
-App.Collections.People = Backbone.Collection.extend({
-  model: App.Models.Person
+App.Collections.Tasks = Backbone.Collection.extend({
+  model: App.Models.Task
 });
 
-// View for all people
-App.Views.People =  Backbone.View.extend({
+App.Views.Tasks = Backbone.View.extend({
   tagName: 'ul',
 
   initialize: function() {
-    console.log("App.Views.People: initialize()");
-    //console.log(this.collection);
+    this.collection.on('add', this.addOne, this);
   },
 
   render: function() {
-    console.log("App.Views.People: render()");
-    // Filter through all items in a colection
-    this.collection.each(function(person){
-      console.log("Working with \'" + person.get('name') + "\'.");
-      // for each, create a new PersonView
-      var personView = new App.Views.Person({ model: person });
-      //console.log(personView.el);
-      // append the root element to the PeopleCollection root element
-      this.$el.append(personView.el);
-    }, this);
-
+    console.log("App.Views.Tasks: render()");
+    this.collection.each(this.addOne, this);
     return this;
+  },
+
+  addOne: function(task) {
+    console.log("App.Views.Tasks: addOne(task)");
+    // create a new child view
+    var taskView = new App.Views.Task({ model: task });
+
+    // append to the root element
+    this.$el.append(taskView.render().el);
   }
 });
 
-// The View for a Person
-App.Views.Person = Backbone.View.extend({
+App.Views.Task = Backbone.View.extend({
   tagName: 'li',
 
-  template: template('personTemplate'),
+  template: template('taskTemplate'),
 
-  initialize: function() {
-    console.log("App.Views.Person: initialize()");
-    this.render();
+  initialize: function(){
+    console.log("App.Views.Task: initialize()");
+    this.model.on('change', this.render, this);
+    this.model.on('destroy', this.remove, this);
+  },
+
+  events: {
+    'click .edit': 'editTask',
+    'click .delete': 'destroy'
+  },
+
+  editTask: function(){
+    console.log("App.Views.Task: editTask()");
+    var newTaskTitle = prompt('What would you like to change the text to?', this.model.get('title'));
+
+    if ( !newTaskTitle ) return;
+
+    this.model.set('title', newTaskTitle);
+  },
+
+  destroy: function(){
+    console.log("App.Views.Task: destroy()");
+    this.model.destroy();
+    console.log(tasksCollection.toJSON());
+  },
+
+  remove: function(){
+    console.log("App.Views.Task: remove()");
+    this.$el.remove();
   },
 
   render: function() {
-    console.log("App.Views.Person: render()");
-    this.$el.html( this.template(this.model.toJSON()) );
+    console.log("App.Views.Task: render()");
+    console.log(this.template(this.model.toJSON()));
+    var template = this.template( this.model.toJSON() );
+    this.$el.html( template );
     return this;
   }
 });
 
-var peopleCollection = new App.Collections.People([
-  {
-    name: 'Jeffrey Way',
-    age: 27
+App.Views.AddTask = Backbone.View.extend({
+  el: '#addTask',
+
+  events: {
+    'submit': 'submit'
   },
-  {
-    name: 'John Doe',
-    age: 50,
-    occupation: 'Web designer'
+
+  initialize: function(){
+    console.log("App.Views.AddTask: initialize()");
   },
-  {
-    name: 'Sally Doe',
-    age: 29,
-    occupation: 'Graphic designer'
+
+  submit: function(e){
+    e.preventDefault();
+    console.log("App.Views.AddTask: submit()");
+    var newTaskTitle = $(e.currentTarget).find('input[type=text]').val();
+    console.log("new task with title: " + newTaskTitle);
+    var task = new App.Models.Task({ title: newTaskTitle});
+    this.collection.add(task);
   }
-]);
+});
 
-//console.log(peopleCollection);
+  var tasksCollection = new App.Collections.Tasks([
+    {
+      title: 'Go to the store',
+      priority: 4
+    },
+    {
+      title: 'Go to the mall',
+      priority: 3
+    },
+    {
+      title: 'Get to work',
+      priority: 5
+    }
+  ]);
 
-var peopleView = new App.Views.People({ collection: peopleCollection });
-$(document.body).append(peopleView.render().el);
+  var addTaskView = new App.Views.AddTask({ collection: tasksCollection});
 
-console.log(App.Collections);
+  var tasksView = new App.Views.Tasks({ collection: tasksCollection });
+  //tasksView.render();
+  console.log(tasksView.$el);
+  $('.tasks').html(tasksView.render().el);
+
 })();
