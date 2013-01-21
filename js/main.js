@@ -86,6 +86,27 @@ App.Views.Task = Backbone.View.extend({
   }
 });
 
+App.Views.AddTask = Backbone.View.extend({
+  el: '#addTask',
+
+  events: {
+    'submit': 'submit'
+  },
+
+  initialize: function(){
+    console.log("App.Views.AddTask: initialize()");
+  },
+
+  submit: function(e){
+    e.preventDefault();
+    console.log("App.Views.AddTask: submit()");
+    var newTaskTitle = $(e.currentTarget).find('input[type=text]').val();
+    console.log("new task with title: " + newTaskTitle);
+    var task = new App.Models.Task({ title: newTaskTitle});
+    this.collection.add(task);
+  }
+});
+
   var tasksCollection = new App.Collections.Tasks([
     {
       title: 'Go to the store',
@@ -100,6 +121,8 @@ App.Views.Task = Backbone.View.extend({
       priority: 5
     }
   ]);
+
+  var addTaskView = new App.Views.AddTask({ collection: tasksCollection});
 
   var tasksView = new App.Views.Tasks({ collection: tasksCollection });
   //tasksView.render();
