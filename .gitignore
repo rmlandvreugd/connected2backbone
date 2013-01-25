@@ -13,3 +13,10 @@ npm-debug.log
 *.pid
 connected2backbone.sublime-project
 pids
+/vendor
+composer.phar
+composer.lock
+.DS_Store
+bin
+phpSet.cmd
+app/database/development.sqlite
