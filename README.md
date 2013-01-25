@@ -25,11 +25,11 @@ Following the "Connected to Backbone" tutorial from Tuts+
  - [X] 17-Wildcards-and-Splats.mp4
  - [X] 18-Triggering-Custom-Events.mp4
 - 4 - Backbone And The Server
- - [ ] 19-Laravel-4-And-Fetching-Rows.mp4
- - [ ] 20-Updating-Rows.mp4
- - [ ] 21-Deleting-Rows.mp4
- - [ ] 22-Creating-Records.mp4
- - [ ] 23-Fetching-Rows-Into-A-Collection.mp4
+ - [X] 19-Laravel-4-And-Fetching-Rows.mp4
+ - [X] 20-Updating-Rows.mp4
+ - [X] 21-Deleting-Rows.mp4
+ - [X] 22-Creating-Records.mp4
+ - [X] 23-Fetching-Rows-Into-A-Collection.mp4
 - 5 - Hands-On Contacts Manager
  - [ ] 24-Hands-On-Contacts-Manager-Laravel-Setup.mp4
  - [ ] 25-Hands-On-Contacts-Manager-Setting-Up-The-Models-Views-and-Collections.mp4
