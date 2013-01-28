@@ -20,13 +20,14 @@
   </head>
   <body>
     <!--[if lt IE 8]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+	<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+	<![endif]-->
 
     <!-- script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script -->
-    <h1>Hello World!</h1>
+      <h1>Contacts</h1>
 
-<script>window.jQuery || document.write('<script src="js/vendor/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+      <script>script src="js/vendor/jquery/jquery-1.8.3.min.js"></script>
+      <script src="js/vendor/jquerypp/jquerypp.custom.js"></script>
       <script src="js/vendor/json/json2.js"></script>
       <script src="js/vendor/bootstrap/bootstrap-transition.js"></script>
       <script src="js/vendor/bootstrap/bootstrap-modal.js"></script>
@@ -45,18 +46,23 @@
       <script src="js/vendor/underscore/underscore.string.min.js"></script>
       <script src="js/vendor/backbone/backbone-min.js"></script>
       <script src="js/vendor/backbone.localstorage/backbone.localstorage-min.js"></script>
+      <script src="js/vendor/backbone.offline/backbone.offline.js"></script>
       <script src="js/vendor/backbone.relational/backbone-relational.js"></script>
       <script src="js/vendor/backbone.marionette/backbone.babysitter.js"></script>
       <script src="js/vendor/backbone.marionette/backbone.wreqr.js"></script>
       <script src="js/vendor/backbone.marionette/backbone.marionette.core.js"></script>
       <script src="js/plugins.js"></script>
       <script src="js/main.js"></script>
+      <script src="js/models.js"></script>
+      <script src="js/collections.js"></script>
+      <script src="js/views.js"></script>
+      <script src="js/router.js"></script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
       <!-- script>
-           var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-           (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-           g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-           s.parentNode.insertBefore(g,s)}(document,'script'));
-           </script -->
+	   var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	   g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	   s.parentNode.insertBefore(g,s)}(document,'script'));
+	   </script -->
   </body>
 </html>

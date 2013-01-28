@@ -31,8 +31,8 @@ Following the "Connected to Backbone" tutorial from Tuts+
  - [X] 22-Creating-Records.mp4
  - [X] 23-Fetching-Rows-Into-A-Collection.mp4
 - 5 - Hands-On Contacts Manager
- - [ ] 24-Hands-On-Contacts-Manager-Laravel-Setup.mp4
- - [ ] 25-Hands-On-Contacts-Manager-Setting-Up-The-Models-Views-and-Collections.mp4
+ - [X] 24-Hands-On-Contacts-Manager-Laravel-Setup.mp4
+ - [-] 25-Hands-On-Contacts-Manager-Setting-Up-The-Models-Views-and-Collections.mp4
  - [ ] 26-Hands-On-Contacts-Manager-Creating-New-Contacts.mp4
  - [ ] 26-Hands-On-Contacts-Manager-Displaying-Contacts.mp4
  - [ ] 27-Hands-On-Contacts-Manager-Editing-And-Deleting-Contacts.mp4
