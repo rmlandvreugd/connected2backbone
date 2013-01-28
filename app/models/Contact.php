@@ -1,3 +1,5 @@
 <?php
 
-class Contact extends Eloquent {}
+class Contact extends Eloquent {
+    public $timestamps = false;
+}

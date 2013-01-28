@@ -33,8 +33,8 @@ Following the "Connected to Backbone" tutorial from Tuts+
 - 5 - Hands-On Contacts Manager
  - [X] 24-Hands-On-Contacts-Manager-Laravel-Setup.mp4
  - [X] 25-Hands-On-Contacts-Manager-Setting-Up-The-Models-Views-and-Collections.mp4
- - [-] 26-Hands-On-Contacts-Manager-Creating-New-Contacts.mp4
- - [ ] 26-Hands-On-Contacts-Manager-Displaying-Contacts.mp4
+ - [X] 26-Hands-On-Contacts-Manager-Creating-New-Contacts.mp4
+ - [-] 26-Hands-On-Contacts-Manager-Displaying-Contacts.mp4
  - [ ] 27-Hands-On-Contacts-Manager-Editing-And-Deleting-Contacts.mp4
 - 6 - Extras
  - [ ] 28-CoffeeScript-and-Backbone.mp4
