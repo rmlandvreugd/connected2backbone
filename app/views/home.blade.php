@@ -26,7 +26,7 @@
     <!-- script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script -->
       <h1>Contacts</h1>
 
-      <script>script src="js/vendor/jquery/jquery-1.8.3.min.js"></script>
+      <script src="js/vendor/jquery/jquery-1.8.3.min.js"></script>
       <script src="js/vendor/jquerypp/jquerypp.custom.js"></script>
       <script src="js/vendor/json/json2.js"></script>
       <script src="js/vendor/bootstrap/bootstrap-transition.js"></script>
@@ -45,8 +45,8 @@
       <script src="js/vendor/underscore/underscore-min.js"></script>
       <script src="js/vendor/underscore/underscore.string.min.js"></script>
       <script src="js/vendor/backbone/backbone-min.js"></script>
-      <script src="js/vendor/backbone.localstorage/backbone.localstorage-min.js"></script>
-      <script src="js/vendor/backbone.offline/backbone.offline.js"></script>
+      <!-- script src="js/vendor/backbone.localstorage/backbone.localstorage-min.js"></script -->
+      <!-- script src="js/vendor/backbone.offline/backbone.offline.js"></script -->
       <script src="js/vendor/backbone.relational/backbone-relational.js"></script>
       <script src="js/vendor/backbone.marionette/backbone.babysitter.js"></script>
       <script src="js/vendor/backbone.marionette/backbone.wreqr.js"></script>
@@ -57,6 +57,15 @@
       <script src="js/collections.js"></script>
       <script src="js/views.js"></script>
       <script src="js/router.js"></script>
+      <script>
+	  new App.Router;
+	  Backbone.history.start();
+
+	  App.contacts = new App.Collections.Contacts;
+	  App.contacts.fetch().then(function() {
+	  new App.Views.App({ collection: App.contacts });
+	  });
+      </script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
       <!-- script>
 	   var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

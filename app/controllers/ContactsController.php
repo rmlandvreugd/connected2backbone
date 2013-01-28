@@ -67,12 +67,12 @@ class ContactsController extends BaseController {
 	public function update($id)
 	{
 	    $contact = Contact::find($id);
-	    $input =Input::json();
+	    $input = Input::json();
 
-	    $contact->first_name => $input->first_name;
-	    $contact->last_name => $input->last_name;
-	    $contact->email_address => $input->email_address;
-	    $contact->description => $input->description;
+	    $contact->first_name = $input->first_name;
+	    $contact->last_name = $input->last_name;
+	    $contact->email_address = $input->email_address;
+	    $contact->description = $input->description;
 
 	    $contact-> save();
 	}
